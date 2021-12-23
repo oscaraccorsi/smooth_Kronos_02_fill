@@ -20,7 +20,7 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   angleMode(DEGREES);
-  digitData.loop();
+  digitData.play();
   digitData.setVolume(0.1);
   
 
