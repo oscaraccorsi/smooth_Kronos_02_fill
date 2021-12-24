@@ -14,6 +14,13 @@ function preload(){
   ticMin = loadSound('sound/ticMin.mp3');
   glitch = loadSound('sound/glitch.mp3');
 }
+ function touchStarted() {
+   if (getAudioContext().state !== 'running') {
+      getAudioContext().resume();
+  }
+}
+
+
 
 
 
@@ -117,7 +124,7 @@ function windowResized() {
 } 
 
 function mousePressed() {
-  //save();
+  save();
 }
 
   
