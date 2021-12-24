@@ -8,13 +8,14 @@ var glitch;
 
 
 function preload(){
-  cronos = loadModel('obj/Cronos_02a.obj');
+  
   cronos_Dec = loadModel('obj/Cronos_02a_dec.obj');
   digitData = loadSound('sound/digitSound01.mp3');
   ticMin = loadSound('sound/ticMin.mp3');
   glitch = loadSound('sound/glitch.mp3');
 }
- function touchStarted() {
+
+function touchStarted() {
    if (getAudioContext().state !== 'running') {
       getAudioContext().resume();
   }
@@ -22,12 +23,10 @@ function preload(){
 
 
 
-
-
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   angleMode(DEGREES);
-  digitData.play();
+  digitData.loop();
   digitData.setVolume(0.1);
   
 
@@ -74,7 +73,7 @@ function draw() {
   fill(0);
   let minAngle = map(min, 0, 60, 0, 360);      //minute
   let secAngle = map(sec, 0, 60, 0, 360);       //second
-  translate(20,0,-625);
+  translate(0,0,-625);
   rotateZ(minAngle*10);
   model(cronos_Dec);
   pop();
@@ -84,16 +83,16 @@ function draw() {
   
   translate(0,0,-650);
   rotateZ(minAngle);
-  model(cronos);
+  model(cronos_Dec);
   pop();
 
   push();
   fill(0,random(150,200),0);
   let hourAngle = map(hr % 12, 0, 12, 0, 360);    //hour
-  translate(-50,0,-700);
+  translate(0,0,-675);
                         
   rotateZ(hourAngle);
-  model(cronos); 
+  model(cronos_Dec); 
   pop();
   
   
